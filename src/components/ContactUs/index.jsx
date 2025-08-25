@@ -41,43 +41,52 @@ const ContactUs = () => {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
         {/* Left Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* Office */}
-          <div className="bg-black/80 border border-red-500 rounded-xl p-6 text-center hover:shadow-lg hover:shadow-red-500/30 transition">
-            <MapPin size={32} className="mx-auto mb-4 text-red-400" />
-            <h3 className="text-lg font-bold">Our Office</h3>
-            <p className="text-gray-300 text-sm mt-2">
-              Near Mama Communication, Noor Plaza, Khomer Gilgit
-            </p>
-          </div>
-
-          {/* Call */}
-          <div className="bg-black/80 border border-green-500 rounded-xl p-6 text-center hover:shadow-lg hover:shadow-green-500/30 transition">
-            <Phone size={32} className="mx-auto mb-4 text-green-400" />
-            <h3 className="text-lg font-bold">Call Us</h3>
-            <p className="text-gray-300 text-sm mt-2">+92 327-0099-635</p>
-          </div>
-
-          {/* Email */}
-          <div className="bg-black/80 border border-yellow-500 rounded-xl p-6 text-center hover:shadow-lg hover:shadow-yellow-500/30 transition">
-            <Mail size={32} className="mx-auto mb-4 text-yellow-400" />
-            <h3 className="text-lg font-bold">Email</h3>
-            <p className="text-gray-300 text-sm mt-2">
-              info@siliconglobaltech.com
-            </p>
-          </div>
-
-          {/* Website */}
-          <div className="bg-black/80 border border-blue-500 rounded-xl p-6 text-center hover:shadow-lg hover:shadow-blue-500/30 transition">
-            <Globe size={32} className="mx-auto mb-4 text-blue-400" />
-            <h3 className="text-lg font-bold">Website</h3>
-            <p className="text-gray-300 text-sm mt-2">
-              www.siliconglobaltech.com
-            </p>
-          </div>
+          {/* Reusable card style */}
+          {[
+            {
+              icon: <MapPin size={32} className="mx-auto mb-4 text-pink-400" />,
+              title: "Our Office",
+              desc: "Near Mama Communication, Noor Plaza, Khomer Gilgit",
+            },
+            {
+              icon: <Phone size={32} className="mx-auto mb-4 text-green-400" />,
+              title: "Call Us",
+              desc: "+92 327-0099-635",
+            },
+            {
+              icon: <Mail size={32} className="mx-auto mb-4 text-yellow-400" />,
+              title: "Email",
+              desc: "info@siliconglobaltech.com",
+            },
+            {
+              icon: <Globe size={32} className="mx-auto mb-4 text-blue-400" />,
+              title: "Website",
+              desc: "www.siliconglobaltech.com",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="bg-black/80 rounded-xl p-6 text-center 
+              border border-transparent 
+              bg-clip-padding relative 
+              before:absolute before:inset-0 before:rounded-xl 
+              before:p-[2px] before:bg-gradient-to-r before:from-purple-600 before:to-blue-600 
+              before:-z-10 
+              hover:shadow-lg hover:shadow-purple-600/30 transition"
+            >
+              {item.icon}
+              <h3 className="text-lg font-bold">{item.title}</h3>
+              <p className="text-gray-300 text-sm mt-2">{item.desc}</p>
+            </div>
+          ))}
         </div>
 
         {/* Right Section (Form) */}
-        <div className="bg-black/90 border border-purple-600 rounded-xl p-6">
+        <div
+          className="bg-black/90 border border-transparent relative rounded-xl p-6
+          before:absolute before:inset-0 before:rounded-xl before:p-[2px] 
+          before:bg-gradient-to-r before:from-purple-600 before:to-blue-600 before:-z-10"
+        >
           <h3 className="text-2xl font-bold mb-6">Reach out</h3>
           <form ref={form} onSubmit={sendEmail} className="space-y-4">
             <input
