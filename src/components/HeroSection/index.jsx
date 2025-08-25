@@ -12,7 +12,7 @@ const HeroSection = () => {
   }));
 
   return (
-    <section className="relative flex flex-col items-center justify-center text-center bg-black text-white min-h-screen px-4 md:px-6 overflow-hidden pt-4 sm:pt-20 md:pt-28">
+    <section className="relative flex flex-col items-center justify-center text-center bg-black text-white min-h-screen px-4 md:px-6 overflow-hidden pt-4 sm:pt-20 md:pt-2">
       {/* Purple & Blue Plus Icons (Responsive position) */}
       <FaPlus className="absolute left-6 md:left-20 top-1/3 text-blue-700 text-4xl md:text-7xl opacity-40" />
       <FaPlus className="absolute right-6 md:right-20 top-1/5 text-purple-700 text-4xl md:text-7xl opacity-40" />
