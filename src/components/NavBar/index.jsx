@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // icons for mobile menu
+import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../../assets/logo/LOGO1.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="w-screen flex justify-between items-center px-6 md:px-12 py-4 bg-black text-white fixed top-0 left-0 z-50 shadow-md">
+    <nav className="w-screen flex justify-between items-center px-6 md:px-16 py-5 bg-black text-white fixed top-0 left-0 z-50 shadow-md">
       {/* Logo */}
       <div className="flex items-center">
-        <img src={logo} alt="Logo" className="h-12 md:h-16 object-contain" />
+        <img
+          src={logo}
+          alt="Logo"
+          className="h-20 md:h-20 object-contain" // ✅ logo bigger
+        />
       </div>
 
       {/* Desktop Links */}
-      <ul className="hidden md:flex gap-10 text-base font-medium">
+      <ul className="hidden md:flex gap-12 text-lg font-semibold">
+        {/* ✅ bigger font + more gap */}
         <li>
           <Link to="/" className="hover:text-purple-400 transition">
             Home
@@ -43,7 +48,7 @@ const Navbar = () => {
       </ul>
 
       {/* Desktop Button */}
-      <button className="hidden md:block border border-purple-500 px-6 py-2 rounded-full hover:bg-purple-600 transition">
+      <button className="hidden md:block border-2 border-purple-500 px-8 py-3 text-lg rounded-full hover:bg-purple-600 transition">
         Let’s Talk
       </button>
 
@@ -61,39 +66,39 @@ const Navbar = () => {
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
-            className="hover:text-purple-400 transition"
+            className="text-lg hover:text-purple-400 transition"
           >
             Home
           </Link>
           <Link
             to="/courses"
             onClick={() => setIsOpen(false)}
-            className="hover:text-purple-400 transition"
+            className="text-lg hover:text-purple-400 transition"
           >
             Courses
           </Link>
           <Link
             to="/resources"
             onClick={() => setIsOpen(false)}
-            className="hover:text-purple-400 transition"
+            className="text-lg hover:text-purple-400 transition"
           >
             Resources
           </Link>
           <Link
             to="/about"
             onClick={() => setIsOpen(false)}
-            className="hover:text-purple-400 transition"
+            className="text-lg hover:text-purple-400 transition"
           >
             About Us
           </Link>
           <Link
             to="/contact"
             onClick={() => setIsOpen(false)}
-            className="hover:text-purple-400 transition"
+            className="text-lg hover:text-purple-400 transition"
           >
             Contact Us
           </Link>
-          <button className="border border-purple-500 px-6 py-2 rounded-full hover:bg-purple-600 transition">
+          <button className="border-2 border-purple-500 px-8 py-3 text-lg rounded-full hover:bg-purple-600 transition">
             Let’s Talk
           </button>
         </div>
