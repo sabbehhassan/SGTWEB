@@ -2,18 +2,18 @@ import React from "react";
 import { FaPlus } from "react-icons/fa";
 
 const HeroSection = () => {
-  // Random stars generate karne ke liye ek array
-  const stars = Array.from({ length: 60 }).map((_, i) => ({
+  // Generate 20 random stars in bottom area only
+  const stars = Array.from({ length: 30 }).map((_, i) => ({
     id: i,
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-    size: Math.random() * 3 + 1,
+    left: `${Math.random() * 90 + 5}%`, // avoid edges
+    bottom: `${Math.random() * 80 + 10}px`,
+    size: Math.random() * 3 + 2,
     delay: Math.random() * 5,
   }));
 
   return (
     <section className="relative flex flex-col items-center justify-center text-center bg-black text-white min-h-screen px-4 md:px-6 overflow-hidden pt-4 sm:pt-20 md:pt-2">
-      {/* Purple & Blue Plus Icons (Responsive position) */}
+      {/* Purple & Blue Plus Icons */}
       <FaPlus className="absolute left-6 md:left-20 top-1/3 text-blue-700 text-4xl md:text-7xl opacity-40" />
       <FaPlus className="absolute right-6 md:right-20 top-1/5 text-purple-700 text-4xl md:text-7xl opacity-40" />
 
@@ -69,22 +69,41 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      {/* Stars strictly below arc */}
-      <div className="absolute bottom-0 left-0 w-full h-[80px] sm:h-[100px] md:h-[120px] overflow-hidden">
+      {/* Stars (20 random, shining every 5s) */}
+      <div className="absolute bottom-0 left-0 w-full h-[120px] pointer-events-none">
         {stars.map((star) => (
           <span
             key={star.id}
-            className="absolute rounded-full bg-white animate-twinkle"
+            className="absolute rounded-full bg-white animate-star-shine"
             style={{
               width: `${star.size}px`,
               height: `${star.size}px`,
-              left: `${star.left}%`,
-              top: `${star.top}%`,
+              left: star.left,
+              bottom: star.bottom,
               animationDelay: `${star.delay}s`,
             }}
           ></span>
         ))}
       </div>
+
+      {/* Extra CSS for shine effect */}
+      <style jsx>{`
+        @keyframes star-shine {
+          0%,
+          90%,
+          100% {
+            opacity: 0.3;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.6);
+          }
+        }
+        .animate-star-shine {
+          animation: star-shine 5s infinite ease-in-out;
+        }
+      `}</style>
     </section>
   );
 };

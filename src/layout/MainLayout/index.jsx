@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <div className="bg-black min-h-screen text-white">
       <Navbar />
-      <main className="pt-20">
+      <main className="">
         {" "}
         {/* yahan padding-top add ki */}
         <Outlet />
