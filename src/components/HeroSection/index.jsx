@@ -3,9 +3,9 @@ import { FaPlus } from "react-icons/fa";
 
 const HeroSection = () => {
   // Generate 20 random stars in bottom area only
-  const stars = Array.from({ length: 30 }).map((_, i) => ({
+  const stars = Array.from({ length: 50 }).map((_, i) => ({
     id: i,
-    left: `${Math.random() * 90 + 5}%`, // avoid edges
+    left: `${Math.random() * 60 + 20}%`, // avoid edges
     bottom: `${Math.random() * 80 + 10}px`,
     size: Math.random() * 3 + 2,
     delay: Math.random() * 5,

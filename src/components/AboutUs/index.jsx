@@ -35,16 +35,18 @@ const AboutUs = () => {
           </h3>
           <p className="text-gray-300 leading-relaxed mb-4">
             We are a dynamic and innovative company founded on January 10, 2023,
-            with a vision to provide exceptional products and services to our
+            <br />
+            with a vision to provide exceptional products and services to our{" "}
+            <br />
             clients. Our goal is to offer reliable solutions that meet the
-            ever-changing demands of the market and exceed our client's
+            ever-changing <br /> demands of the market and exceed our client's
             expectations.
           </p>
           <p className="text-gray-300 leading-relaxed mb-6">
-            Committed to innovation and customer-centricity, we embrace
+            Committed to innovation and customer-centricity, we embrace <br />
             opportunities and challenges. Grateful for our stakeholders' trust,
-            we're on an exciting journey to create a legacy of excellence and
-            enduring impact.
+            we're on <br /> an exciting journey to create a legacy of excellence
+            and enduring impact.
           </p>
           <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full shadow-lg transition">
             More Details

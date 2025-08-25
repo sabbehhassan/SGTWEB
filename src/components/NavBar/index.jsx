@@ -6,20 +6,21 @@ import logo from "../../assets/logo/LOGO1.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // WhatsApp Redirect Function
+  const handleWhatsApp = () => {
+    const phoneNumber = "923001234567"; // apna whatsapp number yahan dalna (without +)
+    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+  };
+
   return (
-    <nav className="w-screen flex justify-between items-center px-6 md:px-16 py-5 bg-black text-white fixed top-0 left-0 z-50 shadow-md">
-      {/* Logo */}
-      <div className="flex items-center">
-        <img
-          src={logo}
-          alt="Logo"
-          className="h-20 md:h-20 object-contain" // ✅ logo bigger
-        />
+    <nav className="w-screen flex justify-between items-center px-6 md:px-16 py-5 bg-black/80 backdrop-blur-md text-white fixed top-0 left-0 z-50 shadow-md">
+      {/* Logo with Glass Effect */}
+      <div className="flex items-center px-4 py-2 ">
+        <img src={logo} alt="Logo" className="h-16 md:h-20 object-contain " />
       </div>
 
       {/* Desktop Links */}
       <ul className="hidden md:flex gap-12 text-lg font-semibold">
-        {/* ✅ bigger font + more gap */}
         <li>
           <Link to="/" className="hover:text-purple-400 transition">
             Home
@@ -48,7 +49,10 @@ const Navbar = () => {
       </ul>
 
       {/* Desktop Button */}
-      <button className="hidden md:block border-2 border-purple-500 px-8 py-3 text-lg rounded-full hover:bg-purple-600 transition">
+      <button
+        onClick={handleWhatsApp}
+        className="hidden md:block border-2 border-purple-500 px-8 py-3 text-lg rounded-full hover:bg-purple-600 transition"
+      >
         Let’s Talk
       </button>
 
@@ -98,7 +102,10 @@ const Navbar = () => {
           >
             Contact Us
           </Link>
-          <button className="border-2 border-purple-500 px-8 py-3 text-lg rounded-full hover:bg-purple-600 transition">
+          <button
+            onClick={handleWhatsApp}
+            className="border-2 border-purple-500 px-8 py-3 text-lg rounded-full hover:bg-purple-600 transition"
+          >
             Let’s Talk
           </button>
         </div>
