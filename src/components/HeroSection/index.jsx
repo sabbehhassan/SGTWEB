@@ -5,32 +5,32 @@ const HeroSection = () => {
   // Random stars generate karne ke liye ek array
   const stars = Array.from({ length: 60 }).map((_, i) => ({
     id: i,
-    left: Math.random() * 100, // % position
-    top: Math.random() * 100, // % position
-    size: Math.random() * 3 + 1, // pixel size
-    delay: Math.random() * 5, // animation delay
+    left: Math.random() * 100,
+    top: Math.random() * 100,
+    size: Math.random() * 3 + 1,
+    delay: Math.random() * 5,
   }));
 
   return (
-    <section className="relative flex flex-col items-center justify-center text-center bg-black text-white h-[90vh] px-6 overflow-hidden">
-      {/* Purple & Blue Plus Icons */}
-      <FaPlus className="absolute left-60 top-1/2 text-blue-700 text-7xl opacity-40" />
-      <FaPlus className="absolute right-60 top-1/5 text-purple-700 text-7xl opacity-40" />
+    <section className="relative flex flex-col items-center justify-center text-center bg-black text-white min-h-screen px-4 md:px-6 overflow-hidden pt-4 sm:pt-20 md:pt-28">
+      {/* Purple & Blue Plus Icons (Responsive position) */}
+      <FaPlus className="absolute left-6 md:left-20 top-1/3 text-blue-700 text-4xl md:text-7xl opacity-40" />
+      <FaPlus className="absolute right-6 md:right-20 top-1/5 text-purple-700 text-4xl md:text-7xl opacity-40" />
 
       {/* Heading */}
-      <h1 className="text-4xl md:text-6xl font-bold leading-snug">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-snug">
         Building <span className="text-purple-500">Innovative</span> <br />
         Software Solutions
       </h1>
 
       {/* Subheading */}
-      <p className="mt-4 max-w-2xl text-gray-300">
+      <p className="mt-4 max-w-lg sm:max-w-xl md:max-w-2xl text-gray-300 text-sm sm:text-base md:text-lg">
         We empower businesses with cutting-edge web, mobile, and AI-driven
         applications that accelerate growth and efficiency.
       </p>
 
       {/* Button */}
-      <button className="mt-6 px-6 py-3 rounded-full border border-purple-500 hover:bg-purple-600 transition">
+      <button className="mt-6 px-6 py-2 sm:px-8 sm:py-3 rounded-full border border-purple-500 hover:bg-purple-600 transition text-sm sm:text-base">
         Get Started
       </button>
 
@@ -38,11 +38,10 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 w-full">
         <svg
           viewBox="0 0 1000 200"
-          className="w-full h-[240px]"
+          className="w-full h-[120px] sm:h-[180px] md:h-[240px]"
           preserveAspectRatio="none"
         >
           <defs>
-            {/* Glow Effect */}
             <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation="8" result="blur" />
               <feMerge>
@@ -51,7 +50,6 @@ const HeroSection = () => {
               </feMerge>
             </filter>
 
-            {/* Gradient Arc */}
             <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="transparent" />
               <stop offset="25%" stopColor="#FFD700" stopOpacity="0.7" />
@@ -61,7 +59,6 @@ const HeroSection = () => {
             </linearGradient>
           </defs>
 
-          {/* Arc Path */}
           <path
             d="M 0 200 Q 500 0 1000 200"
             stroke="url(#arcGradient)"
@@ -73,7 +70,7 @@ const HeroSection = () => {
       </div>
 
       {/* Stars strictly below arc */}
-      <div className="absolute bottom-0 left-0 w-full h-[120px] overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full h-[80px] sm:h-[100px] md:h-[120px] overflow-hidden">
         {stars.map((star) => (
           <span
             key={star.id}
