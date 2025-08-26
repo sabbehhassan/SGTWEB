@@ -8,14 +8,41 @@ const HeroSection = () => {
     left: `${Math.random() * 60 + 20}%`, // avoid edges
     bottom: `${Math.random() * 80 + 10}px`,
     size: Math.random() * 3 + 2,
-    delay: Math.random() * 5,
+    delay: Math.random() * 2,
   }));
 
   return (
     <section className="relative flex flex-col items-center justify-center text-center bg-black text-white min-h-screen px-4 md:px-6 overflow-hidden pt-4 sm:pt-20 md:pt-2">
-      {/* Purple & Blue Plus Icons */}
-      <FaPlus className="absolute left-6 md:left-20 top-1/3 text-blue-700 text-4xl md:text-7xl opacity-40" />
-      <FaPlus className="absolute right-6 md:right-20 top-1/5 text-purple-700 text-4xl md:text-7xl opacity-40" />
+      {/* Custom Thin Plus Icons */}
+      <svg
+        className="absolute left-6 md:left-70 top-1/2 text-blue-700 opacity-40"
+        width="100"
+        height="100"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5" // yahan stroke ko patla kar sakte ho
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+
+      <svg
+        className="absolute right-6 md:right-70 top-1/5 text-purple-700 opacity-40"
+        width="100"
+        height="100"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5" // patla line
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
 
       {/* Heading */}
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-snug">
@@ -30,8 +57,15 @@ const HeroSection = () => {
       </p>
 
       {/* Button */}
-      <button className="mt-6 px-6 py-2 sm:px-8 sm:py-3 rounded-full border border-purple-500 hover:bg-purple-600 transition text-sm sm:text-base">
-        Get Started
+      <button
+        className="mt-6 relative px-6 py-2 text-base font-semibold rounded-full 
+  bg-gradient-to-r from-purple-600 to-blue-600 text-white 
+  transition hover:opacity-90 
+  before:absolute before:inset-0 before:rounded-full before:p-[2px] 
+  before:bg-gradient-to-r before:from-blue-600 before:to-purple-600 
+  before:-z-10"
+      >
+        <span className="relative z-10">Get Started</span>
       </button>
 
       {/* Yellow Arc with Shadow Glow */}

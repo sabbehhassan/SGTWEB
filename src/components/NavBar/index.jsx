@@ -51,7 +51,7 @@ const Navbar = () => {
       {/* Desktop Button */}
       <button
         onClick={handleWhatsApp}
-        className="hidden md:block border-2 border-purple-500 px-8 py-3 text-lg rounded-full hover:bg-purple-600 transition"
+        className="hidden md:block border-2 border-purple-500 px-8 py-2 text-lg rounded-full hover:bg-purple-600 transition"
       >
         Let’s Talk
       </button>
@@ -104,7 +104,12 @@ const Navbar = () => {
           </Link>
           <button
             onClick={handleWhatsApp}
-            className="border-2 border-purple-500 px-8 py-3 text-lg rounded-full hover:bg-purple-600 transition"
+            className="hidden md:block relative px-6 py-2 text-base font-semibold rounded-full 
+  bg-gradient-to-r from-purple-600 to-blue-600 
+  text-white transition hover:opacity-90 
+  before:absolute before:inset-0 before:rounded-full before:p-[2px] 
+  before:bg-gradient-to-r before:from-blue-600 before:to-purple-600 
+  before:-z-10"
           >
             Let’s Talk
           </button>
