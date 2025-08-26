@@ -11,6 +11,7 @@ import {
   FaShopify,
   FaLaptopCode,
 } from "react-icons/fa";
+import EnrollForm from "../../components/EnrollmentForm"; // ✅ Import your form
 
 import webpic from "../../assets/services_pic/webpic.jpg";
 import aipic from "../../assets/services_pic/aipic.jpg";
@@ -111,6 +112,7 @@ const CoursesPage = () => {
   const totalPagesDesktop = Math.ceil(courses.length / itemsPerPageDesktop);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   // ⭐ Stars Effect
   const [stars, setStars] = useState([]);
@@ -148,7 +150,10 @@ const CoursesPage = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
   };
 
-  const closePopup = () => setSelectedCourse(null);
+  const closePopup = () => {
+    setSelectedCourse(null);
+    setShowForm(false);
+  };
 
   return (
     <div className="relative py-20 px-5 text-center min-h-screen bg-black overflow-hidden">
@@ -172,7 +177,6 @@ const CoursesPage = () => {
 
       {/* Main Content (blur only when popup is open) */}
       <div className={`${selectedCourse ? "blur-sm" : ""}`}>
-        {/* Heading */}
         <h2 className="relative text-4xl font-extrabold tracking-wide text-white z-10">
           From <span className="text-purple-400">Beginner</span> to{" "}
           <span className="text-blue-400">Pro</span>
@@ -236,49 +240,17 @@ const CoursesPage = () => {
             ❯
           </button>
         </div>
-
-        {/* Mobile View */}
-        <div className="lg:hidden mt-12 overflow-x-auto scroll-smooth snap-x snap-mandatory px-5 hide-scrollbar pb-16">
-          <div className="flex gap-6">
-            {courses.map((course) => (
-              <div
-                key={course.id}
-                onClick={() => setSelectedCourse(course)}
-                className="flex-shrink-0 w-80 p-6 rounded-2xl h-[480px] 
-                  bg-white shadow-lg border border-gray-200
-                  hover:scale-105 transition-all 
-                  flex flex-col snap-center"
-              >
-                <div className="flex justify-center mb-4">{course.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  {course.name}
-                </h3>
-                <p className="text-gray-600 text-sm mt-2 flex-grow">
-                  {course.desc}
-                </p>
-                <img
-                  src={course.image}
-                  alt={course.name}
-                  className="w-full h-48 object-cover rounded-xl shadow-md mt-4 border border-gray-200"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
-      {/* ✅ Centered Alert Popup */}
+      {/* ✅ Popup */}
       {selectedCourse && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Dark Background */}
           <div
             className="absolute inset-0 bg-black bg-opacity-50"
             onClick={closePopup}
           ></div>
 
-          {/* Popup Box (clear, not blurred) */}
           <div className="relative z-50 bg-white border border-gray-300 shadow-2xl rounded-xl p-8 w-11/12 max-w-3xl animate-slideDown">
-            {/* Close Button */}
             <button
               onClick={closePopup}
               className="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl"
@@ -286,28 +258,32 @@ const CoursesPage = () => {
               ✕
             </button>
 
-            {/* Content */}
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              {/* Icon */}
-              <div className="text-6xl">{selectedCourse.icon}</div>
+            {!showForm ? (
+              <>
+                <div className="flex flex-col md:flex-row items-center gap-6">
+                  <div className="text-6xl">{selectedCourse.icon}</div>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      {selectedCourse.name}
+                    </h3>
+                    <p className="text-gray-600 text-base leading-relaxed">
+                      {selectedCourse.longDesc}
+                    </p>
+                  </div>
+                </div>
 
-              {/* Text */}
-              <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  {selectedCourse.name}
-                </h3>
-                <p className="text-gray-600 text-base leading-relaxed">
-                  {selectedCourse.longDesc}
-                </p>
-              </div>
-            </div>
-
-            {/* Enroll Button */}
-            <div className="mt-6 flex justify-center">
-              <button className="px-8 py-3 rounded-lg bg-purple-600 text-white text-lg font-semibold hover:bg-purple-700 transition">
-                Enroll Now
-              </button>
-            </div>
+                <div className="mt-6 flex justify-center">
+                  <button
+                    onClick={() => setShowForm(true)}
+                    className="px-8 py-3 rounded-lg bg-purple-600 text-white text-lg font-semibold hover:bg-purple-700 transition"
+                  >
+                    Enroll Now
+                  </button>
+                </div>
+              </>
+            ) : (
+              <EnrollForm course={selectedCourse.name} onClose={closePopup} />
+            )}
           </div>
         </div>
       )}
