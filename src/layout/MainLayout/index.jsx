@@ -2,12 +2,15 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/NavBar";
 import Footer from "../../components/Footer";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const MainLayout = () => {
   return (
     <div className="bg-black min-h-screen text-white">
+      {/* ScrollToTop will listen to route changes */}
+      <ScrollToTop />
       <Navbar />
-      <main className="">
+      <main className="pt-20">
         {" "}
         {/* yahan padding-top add ki */}
         <Outlet />
