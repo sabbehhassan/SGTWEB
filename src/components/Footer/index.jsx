@@ -3,9 +3,9 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa"; // Social
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-black px-6 py-14 w-full shadow-inner">
+    <footer className="bg-white text-black px-6 py-6 w-full shadow-inner">
       {/* Footer Container */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-center">
         {/* Contact Info */}
         <div>
           <h4 className="mb-4 text-2xl font-bold text-purple-600">
@@ -62,7 +62,7 @@ export default function Footer() {
         {/* Social Media */}
         <div>
           <h4 className="mb-4 text-2xl font-bold text-purple-700">Follow Us</h4>
-          <div className="flex justify-center md:justify-start gap-5 flex-wrap">
+          <div className="flex justify-center md:justify-center gap-5 flex-wrap">
             {/* Facebook */}
             <a
               href="https://www.facebook.com/siliconglobaltech"

@@ -21,7 +21,7 @@ const HeroSection = () => {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5" // yahan stroke ko patla kar sakte ho
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -36,7 +36,7 @@ const HeroSection = () => {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5" // patla line
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -103,7 +103,7 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      {/* Stars (20 random, shining every 5s) */}
+      {/* Stars (20 random, shining every 2s) */}
       <div className="absolute bottom-0 left-0 w-full h-[120px] pointer-events-none">
         {stars.map((star) => (
           <span
@@ -135,7 +135,7 @@ const HeroSection = () => {
           }
         }
         .animate-star-shine {
-          animation: star-shine 5s infinite ease-in-out;
+          animation: star-shine 2s infinite ease-in-out;
         }
       `}</style>
     </section>
