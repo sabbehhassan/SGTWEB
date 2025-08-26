@@ -8,7 +8,7 @@ const Navbar = () => {
 
   // WhatsApp Redirect Function
   const handleWhatsApp = () => {
-    const phoneNumber = "3270099635"; // apna whatsapp number yahan dalna (without +)
+    const phoneNumber = "923270099635"; // ✅ apna WhatsApp number full with country code (without +)
     window.open(`https://wa.me/${phoneNumber}`, "_blank");
   };
 
