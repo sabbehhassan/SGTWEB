@@ -26,7 +26,7 @@ const StarsBackground = () => {
       {stars.map((star) => (
         <div
           key={star.id}
-          className={`absolute bg-white rounded-full transition-opacity duration-500 ${
+          className={`absolute bg-white rounded-full transition-opacity duration-200 ${
             star.blink ? "opacity-0" : "opacity-100"
           }`}
           style={{
