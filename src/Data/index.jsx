@@ -6,71 +6,74 @@ import bookkeepingpic from "../assets/services_pic/bookkeepingpic.jpg";
 
 const resourcesData = [
   {
-    id: "web-development",
+    id: 1,
     name: "Web Development",
-    shortDesc:
-      "Build responsive and dynamic websites with modern technologies.",
-    longDesc: `Step into the world of web development with hands-on projects and learning. Master HTML, CSS, JavaScript, React, Vue, TailwindCSS, and modern frameworks to build full-stack applications. Learn to create responsive designs, optimized front-end, and efficient back-end systems.`,
-    projects: [
-      "Portfolio Website",
-      "E-commerce Web App",
-      "Dashboard Application",
-      "Blog Platform",
-    ],
+    shortDesc: "Build responsive websites",
+    longDesc:
+      "Learn HTML, CSS, JavaScript, and modern frameworks to create fast, responsive, and beautiful websites.",
     image: webpic,
+    projects: ["Portfolio Website", "E-commerce Store", "Blog Platform"],
+    buttonText: "Get Resources",
+    buttonLink: "https://github.com/your-github-username",
   },
   {
-    id: "ui-ux",
+    id: 2,
     name: "UI/UX Design",
-    shortDesc: "Craft user experiences that delight and engage.",
-    longDesc: `Design intuitive, visually stunning interfaces that prioritize user experience. Learn user research, wireframing, prototyping, and usability testing with Figma, Adobe XD, and Sketch. Build responsive and accessible designs that users love.`,
-    projects: [
-      "Mobile App Prototype",
-      "E-commerce Website UI",
-      "Dashboard Design",
-      "Redesign Existing Website",
-    ],
+    shortDesc: "Design beautiful interfaces",
+    longDesc:
+      "Master design principles, wireframing, prototyping, and tools like Figma to craft stunning user experiences.",
     image: uipic,
+    projects: ["Mobile App UI", "Website Redesign"],
+    buttonText: "Designer Profile",
+    buttonLink: "https://www.linkedin.com/in/your-linkedin-profile",
   },
   {
-    id: "ai-dl",
+    id: 3,
     name: "AI & Deep Learning",
-    shortDesc:
-      "Unlock the power of artificial intelligence to solve real-world problems.",
-    longDesc: `Dive into AI & Deep Learning to build intelligent systems capable of understanding data, recognizing patterns, and making predictions. Work with machine learning algorithms, neural networks, NLP, computer vision using Python, TensorFlow, and PyTorch. Build innovative AI-powered solutions.`,
-    projects: [
-      "Chatbot Application",
-      "Image Classification Model",
-      "Stock Market Prediction",
-      "Recommendation System",
-    ],
+    shortDesc: "Master AI tools & techniques",
+    longDesc:
+      "Get hands-on with machine learning, neural networks, natural language processing, and computer vision.",
     image: aipic,
+    projects: ["Chatbot", "Image Classifier", "Recommendation System"],
+    buttonText: "Get Resources",
+    buttonLink: "https://github.com/your-github-username",
   },
   {
-    id: "bookkeeping",
-    name: "Bookkeeping",
+    id: 4,
+    name: "Accounting and Bookkeeping",
     shortDesc: "Keep your finances organized and accurate.",
-    longDesc: `Learn essential accounting and bookkeeping skills for managing business finances. Understand balance sheets, income statements, cash flow, and financial compliance. Track expenses, monitor profits, and make informed financial decisions.`,
+    longDesc: `
+    Learn essential accounting and bookkeeping skills for managing business finances. 
+    Understand balance sheets, income statements, cash flow, and financial compliance. 
+    Track expenses, monitor profits, and make informed financial decisions.
+
+    Accounting Tools:
+    - QuickBooks Online
+    - Xero ProAdvisor
+    - Zoho Books
+    - Odoo
+    - FreshBooks
+  `,
+    image: bookkeepingpic,
     projects: [
       "Small Business Ledger System",
       "Financial Statement Preparation",
       "Budget Planning Template",
       "Automated Invoice Management System",
     ],
-    image: bookkeepingpic,
+    buttonText: "Project Portfolio",
+    buttonLink: "https://wa.me/923001234567",
   },
   {
-    id: "amazon-trading",
-    name: "Amazon Trading",
-    shortDesc: "Launch and grow your Amazon marketplace business.",
-    longDesc: `Master Amazon selling strategies including FBA & FBM, inventory management, product listing optimization, and advertising campaigns. Learn to launch profitable products, increase sales, and build a sustainable e-commerce brand.`,
-    projects: [
-      "FBA Product Launch",
-      "Amazon Store Optimization",
-      "Advertising Campaign Setup",
-      "Inventory & Order Management System",
-    ],
+    id: 5,
+    name: "Amazon Business",
+    shortDesc: "Grow your Amazon store",
+    longDesc:
+      "Learn how to set up, optimize, and scale your Amazon FBA business with proven strategies.",
     image: amazonpic,
+    projects: ["Product Research", "Listing Optimization", "Ad Campaigns"],
+    buttonText: "Contact Us",
+    buttonLink: "https://wa.me/923001234567", // WhatsApp direct link
   },
 ];
 
