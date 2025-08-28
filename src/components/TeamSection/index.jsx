@@ -2,32 +2,38 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Sabbeh from "../../assets/team/sabbeh.png";
 import Shahid from "../../assets/team/shahid.jpg";
+import Sami from "../../assets/team/sami.png";
+import Hasnian from "../../assets/team/hasnain.png";
+import Karrar from "../../assets/team/karrar.png";
 
 const TeamSection = () => {
   const teamMembers = [
-    { id: 1, name: "Sabbih Hassan", role: "Developer", image: Sabbeh },
-    { id: 2, name: "Hasnain-ullah", role: "AI & Data Science", image: Sabbeh },
-    { id: 3, name: "Karrar Haider", role: "UX/UI Designer", image: Shahid },
+    { id: 1, name: "Sabbeh Hassan", role: "Developer", image: Sabbeh },
+    { id: 2, name: "Hasnain-ullah", role: "AI & Data Science", image: Hasnian },
+    { id: 3, name: "Karrar Haider", role: "UX/UI Designer", image: Karrar },
     {
       id: 4,
       name: "Shahid Farman",
       role: "Accounting & Bookkeeping",
       image: Shahid,
     },
+    { id: 5, name: "Sammi Hassan", role: "E-Commerce", image: Sami },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? Math.max(teamMembers.length - 4, 0) : prev - 1
+    );
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev + 4 >= teamMembers.length ? 0 : prev + 1));
   };
 
-  // swipe handlers
+  // swipe handlers (mobile)
   const handleTouchStart = (e) => {
     setTouchStart(e.touches[0].clientX);
   };
@@ -38,10 +44,8 @@ const TeamSection = () => {
     const diff = touchStart - touchEnd;
 
     if (diff > 50) {
-      // swipe left
       nextSlide();
     } else if (diff < -50) {
-      // swipe right
       prevSlide();
     }
     setTouchStart(null);
@@ -85,9 +89,9 @@ const TeamSection = () => {
             <ChevronLeft size={40} />
           </button>
 
-          {/* Cards */}
+          {/* 4 visible cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 w-full">
-            {teamMembers.map((member) => (
+            {teamMembers.slice(currentIndex, currentIndex + 4).map((member) => (
               <div
                 key={member.id}
                 className="flex flex-col items-center text-center bg-gray-900 p-8 rounded-2xl shadow-xl hover:shadow-purple-500/40 transition"

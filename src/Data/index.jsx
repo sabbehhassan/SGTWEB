@@ -66,10 +66,10 @@ const resourcesData = [
   },
   {
     id: 5,
-    name: "Amazon Business",
-    shortDesc: "Grow your Amazon store",
+    name: "E-Commerce",
+    shortDesc: "Grow your E-Commerce store",
     longDesc:
-      "Learn how to set up, optimize, and scale your Amazon FBA business with proven strategies.",
+      "Learn how to set up, optimize, and scale your E-Commerce business with proven strategies.",
     image: amazonpic,
     projects: ["Product Research", "Listing Optimization", "Ad Campaigns"],
     buttonText: "Contact Us",
