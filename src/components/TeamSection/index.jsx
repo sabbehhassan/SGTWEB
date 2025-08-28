@@ -17,20 +17,28 @@ const TeamSection = () => {
       role: "Accounting & Bookkeeping",
       image: Shahid,
     },
-    { id: 5, name: "Sammi Hassan", role: "E-Commerce", image: Sami },
+    { id: 5, name: "Sammi Hassan", role: "e-Commerce", image: Sami },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? Math.max(teamMembers.length - 4, 0) : prev - 1
-    );
+  // Desktop navigation (4 cards per view)
+  const prevSlideDesktop = () => {
+    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 4 : prev - 1));
   };
 
-  const nextSlide = () => {
+  const nextSlideDesktop = () => {
     setCurrentIndex((prev) => (prev + 4 >= teamMembers.length ? 0 : prev + 1));
+  };
+
+  // Mobile navigation (1 card per view)
+  const prevSlideMobile = () => {
+    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
+  };
+
+  const nextSlideMobile = () => {
+    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
   };
 
   // swipe handlers (mobile)
@@ -44,9 +52,9 @@ const TeamSection = () => {
     const diff = touchStart - touchEnd;
 
     if (diff > 50) {
-      nextSlide();
+      nextSlideMobile();
     } else if (diff < -50) {
-      prevSlide();
+      prevSlideMobile();
     }
     setTouchStart(null);
   };
@@ -83,7 +91,7 @@ const TeamSection = () => {
         <div className="hidden md:flex items-center justify-center relative">
           {/* Left Arrow */}
           <button
-            onClick={prevSlide}
+            onClick={prevSlideDesktop}
             className="absolute -left-16 bg-transparent text-white p-2 hover:scale-110 transition"
           >
             <ChevronLeft size={40} />
@@ -109,7 +117,7 @@ const TeamSection = () => {
 
           {/* Right Arrow */}
           <button
-            onClick={nextSlide}
+            onClick={nextSlideDesktop}
             className="absolute -right-16 bg-transparent text-white p-2 hover:scale-110 transition"
           >
             <ChevronRight size={40} />

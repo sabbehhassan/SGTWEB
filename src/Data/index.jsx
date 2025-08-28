@@ -66,10 +66,10 @@ const resourcesData = [
   },
   {
     id: 5,
-    name: "E-Commerce",
-    shortDesc: "Grow your E-Commerce store",
+    name: "e-Commerce",
+    shortDesc: "Grow your e-Commerce store",
     longDesc:
-      "Learn how to set up, optimize, and scale your E-Commerce business with proven strategies.",
+      "We are e-Commerce experts with proven experience in managing and scaling businesses across leading platforms such as Amazon, Walmart, eBay, and TikTok Shop. Our team specializes in product optimization, store management, and strategic marketing to help brands increase visibility, boost sales, and achieve long-term growth in competitive online marketplaces.”",
     image: amazonpic,
     projects: ["Product Research", "Listing Optimization", "Ad Campaigns"],
     buttonText: "Contact Us",
