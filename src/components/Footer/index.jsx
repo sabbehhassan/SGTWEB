@@ -42,7 +42,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                to="/services"
+                to="/resources"
                 className="hover:text-purple-600 transition-colors duration-300"
               >
                 Services
@@ -50,10 +50,10 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                to="/contact"
+                to="/courses"
                 className="hover:text-purple-600 transition-colors duration-300"
               >
-                Contact Us
+                Courses
               </Link>
             </li>
           </ul>

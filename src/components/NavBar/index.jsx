@@ -15,9 +15,15 @@ const Navbar = () => {
   return (
     <nav className="w-screen flex justify-between items-center px-6 md:px-16 py-5 bg-black/80 backdrop-blur-md text-white fixed top-0 left-0 z-50 shadow-md">
       {/* Logo with Glass Effect */}
-      <div className="flex items-center px-4 py-2 ">
-        <img src={logo} alt="Logo" className="h-16 md:h-20 object-contain " />
-      </div>
+      <Link to="/">
+        {" "}
+        {/* Home page ka link */}
+        <img
+          src={logo}
+          alt="Logo"
+          className="h-16 md:h-20 object-contain cursor-pointer"
+        />
+      </Link>
 
       {/* Desktop Links */}
       <ul className="hidden md:flex gap-12 text-lg font-semibold">
@@ -33,7 +39,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/resources" className="hover:text-purple-400 transition">
-            Resources
+            Services
           </Link>
         </li>
         <li>
