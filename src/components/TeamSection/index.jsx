@@ -5,24 +5,9 @@ import Shahid from "../../assets/team/shahid.jpg";
 
 const TeamSection = () => {
   const teamMembers = [
-    {
-      id: 1,
-      name: "Sabbih Hassan",
-      role: "Developer",
-      image: Sabbeh,
-    },
-    {
-      id: 2,
-      name: "Hasnain-ullah",
-      role: "AI & Data Science",
-      image: Sabbeh,
-    },
-    {
-      id: 3,
-      name: "Karrar Haider",
-      role: "UX/UI Designer",
-      image: Shahid,
-    },
+    { id: 1, name: "Sabbih Hassan", role: "Developer", image: Sabbeh },
+    { id: 2, name: "Hasnain-ullah", role: "AI & Data Science", image: Sabbeh },
+    { id: 3, name: "Karrar Haider", role: "UX/UI Designer", image: Shahid },
     {
       id: 4,
       name: "Shahid Farman",
@@ -32,6 +17,7 @@ const TeamSection = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
@@ -39,6 +25,26 @@ const TeamSection = () => {
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
+  };
+
+  // swipe handlers
+  const handleTouchStart = (e) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!touchStart) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEnd;
+
+    if (diff > 50) {
+      // swipe left
+      nextSlide();
+    } else if (diff < -50) {
+      // swipe right
+      prevSlide();
+    }
+    setTouchStart(null);
   };
 
   return (
@@ -50,8 +56,12 @@ const TeamSection = () => {
           <span className="text-purple-500">Vision</span>
         </h2>
 
-        {/* --- Mobile View (1 card) --- */}
-        <div className="block md:hidden relative">
+        {/* --- Mobile View (1 card + swipe) --- */}
+        <div
+          className="block md:hidden relative"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="flex flex-col items-center bg-gray-900 p-6 rounded-xl shadow-lg">
             <img
               src={teamMembers[currentIndex].image}
