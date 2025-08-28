@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <section className="bg-black text-white py-12 px-6 md:px-16">
+    <section className="bg-black text-white py-16 px-6 md:px-16">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-16">
         {/* Left Side - Text Content */}
         <div className="flex-1 h-[300px] md:h-[400px] flex flex-col justify-between">
