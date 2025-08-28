@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   // Generate 20 random stars in bottom area only
@@ -57,16 +57,17 @@ const HeroSection = () => {
       </p>
 
       {/* Button */}
-      <button
+      <Link
+        to="/resources"
         className="mt-6 relative px-6 py-2 text-base font-semibold rounded-full 
   bg-gradient-to-r from-purple-600 to-blue-600 text-white 
-  transition hover:opacity-90 
+  transition-colors duration-300 ease-in-out
   before:absolute before:inset-0 before:rounded-full before:p-[2px] 
   before:bg-gradient-to-r before:from-blue-600 before:to-purple-600 
-  before:-z-10"
+  before:-z-10 inline-block text-center"
       >
         <span className="relative z-10">Get Started</span>
-      </button>
+      </Link>
 
       {/* Yellow Arc with Shadow Glow */}
       <div className="absolute bottom-0 left-0 w-full">
