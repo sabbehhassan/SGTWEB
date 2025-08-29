@@ -1,4 +1,5 @@
-import React from "react";
+// src/components/SkillsSection.jsx
+import React, { useState } from "react";
 import {
   Code,
   Brain,
@@ -9,6 +10,7 @@ import {
   Store,
   Bitcoin,
 } from "lucide-react";
+import EnrollmentForm from "../EnrollmentForm"; // ✅ import form
 
 const skills = [
   {
@@ -54,8 +56,10 @@ const skills = [
 ];
 
 const SkillsSection = () => {
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-16">
+    <section className="bg-black text-white py-16 px-6 md:px-16 relative">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-12">
           Master <span className="text-purple-500">Essential</span> Skills
@@ -71,13 +75,28 @@ const SkillsSection = () => {
               <div className="flex justify-center mb-4">{skill.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{skill.title}</h3>
               <p className="text-gray-400 text-sm mb-4">{skill.desc}</p>
-              <button className="px-4 py-2 rounded-lg text-white border border-purple-500 hover:bg-purple-600 transition">
+              <button
+                onClick={() => setSelectedCourse(skill.title)}
+                className="px-4 py-2 rounded-lg text-white border border-purple-500 hover:bg-purple-600 transition"
+              >
                 Get Started
               </button>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Enrollment Modal */}
+      {selectedCourse && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm z-50">
+          <div className="max-w-lg w-full mx-4">
+            <EnrollmentForm
+              course={selectedCourse}
+              onClose={() => setSelectedCourse(null)}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
