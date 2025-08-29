@@ -1,113 +1,69 @@
+// src/components/TeamSection.jsx
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import Sabbeh from "../../assets/team/sabbeh.png";
-import Shahid from "../../assets/team/shahid.jpg";
-import Sami from "../../assets/team/sami.png";
-import Hasnian from "../../assets/team/hasnain.png";
-import Karrar from "../../assets/team/karrar.png";
+import {
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Globe,
+  Linkedin,
+  Github,
+  Phone,
+  Briefcase,
+} from "lucide-react";
+import teamMembers from "../../Data/TeamData"; // ✅ Correct path
+
+const TABS = [
+  { key: "bio", label: "Bio" },
+  { key: "experience", label: "Experience" },
+  { key: "projects", label: "Projects" },
+  { key: "awards", label: "Awards" },
+  { key: "researchInterest", label: "Research Interest" },
+];
 
 const TeamSection = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Sabbeh Hassan",
-      role: "Developer",
-      email: "hassansubbeh2446@gmail.com",
-      image: Sabbeh,
-      skills: ["React", "Node.js", "MongoDB"],
-      experience:
-        "Sabbeh Hassan is a passionate and skilled Full-Stack Developer with over 2.5 years of hands-on experience in building modern and scalable web applications. His journey in the tech world began with mastering the fundamentals of HTML and CSS, where he developed a solid foundation in creating clean and responsive user interfaces.With time, he moved into the world of JavaScript, unlocking the power of dynamic and interactive web development. Driven by curiosity and a hunger for growth, Sabbeh explored Django, reaching an intermediate level of proficiency and gaining valuable backend development experience.His real breakthrough came with Vue.js, where he advanced to an expert level, building highly efficient, user-friendly, and performance-driven front-end solutions. Leveraging his strong command of Vue.js, he contributed to projects that emphasized both usability and technical robustness.Later, Sabbeh expanded his skill set by diving deep into the MERN Stack (MongoDB, Express, React, Node.js). Through diverse projects, he honed his expertise in full-stack development, gaining professional-level proficiency in designing and implementing complete web solutions — from database modeling to backend APIs and front-end interfaces.Today, Sabbeh stands as a professional developer who thrives in solving complex problems, adopting the latest frameworks, and delivering products that exceed client expectations. His continuous learning mindset and hands-on experience make him a valuable contributor to any innovative tech team.",
-    },
-    {
-      id: 2,
-      name: "Hasnain-ullah",
-      role: "AI & Data Science",
-      email: "hasnain@example.com",
-      image: Hasnian,
-      skills: ["Python", "TensorFlow", "Machine Learning"],
-      experience:
-        "Hasnain specializes in AI & Data Science, building predictive models and deploying ML solutions for real-world problems.",
-    },
-    {
-      id: 3,
-      name: "Karrar Haider",
-      role: "UX/UI Designer",
-      email: "karrar@example.com",
-      image: Karrar,
-      skills: ["Figma", "Adobe XD", "Prototyping"],
-      experience:
-        "Karrar has designed intuitive interfaces and user experiences for multiple startups and enterprise apps.",
-    },
-    {
-      id: 4,
-      name: "Shahid Farman",
-      role: "Accounting & Bookkeeping",
-      email: "shahid@example.com",
-      image: Shahid,
-      skills: ["QuickBooks", "Excel", "Financial Reporting"],
-      experience:
-        "Shahid has a strong background in finance and has worked on bookkeeping, audits, and business reports for SMEs.",
-    },
-    {
-      id: 5,
-      name: "Sammi Hassan",
-      role: "e-Commerce",
-      email: "sammi@example.com",
-      image: Sami,
-      skills: ["Shopify", "WooCommerce", "Digital Marketing"],
-      experience:
-        "Sammi has managed multiple eCommerce stores, optimizing sales funnels and customer journeys successfully.",
-    },
-  ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
-  const [selectedMember, setSelectedMember] = useState(null); // For modal
+  const [selectedMember, setSelectedMember] = useState(null);
+  const [activeTab, setActiveTab] = useState("bio");
 
   const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? Math.max(teamMembers.length - 4, 0) : prev - 1
+    setCurrentIndex((p) =>
+      p === 0 ? Math.max(teamMembers.length - 4, 0) : p - 1
     );
   };
-
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 4 >= teamMembers.length ? 0 : prev + 1));
+    setCurrentIndex((p) => (p + 4 >= teamMembers.length ? 0 : p + 1));
   };
 
-  // swipe handlers (mobile)
-  const handleTouchStart = (e) => {
-    setTouchStart(e.touches[0].clientX);
-  };
-
+  const handleTouchStart = (e) => setTouchStart(e.touches[0].clientX);
   const handleTouchEnd = (e) => {
-    if (!touchStart) return;
-    const touchEnd = e.changedTouches[0].clientX;
-    const diff = touchStart - touchEnd;
-
+    if (touchStart == null) return;
+    const diff = touchStart - e.changedTouches[0].clientX;
     if (diff > 50) nextSlide();
     else if (diff < -50) prevSlide();
-
     setTouchStart(null);
   };
 
   return (
     <section className="bg-black text-white py-14 px-6 md:px-16">
       <div className="max-w-7xl mx-auto text-center relative">
-        {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold mb-12">
           The <span className="text-purple-500">People</span> Behind the{" "}
           <span className="text-purple-500">Vision</span>
         </h2>
 
-        {/* --- Mobile View (1 card + swipe) --- */}
+        {/* Mobile */}
         <div
-          className="block md:hidden relative"
+          className="block md:hidden"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
           <div
             className="flex flex-col items-center bg-gray-900 p-6 rounded-xl shadow-lg cursor-pointer"
-            onClick={() => setSelectedMember(teamMembers[currentIndex])}
+            onClick={() => {
+              setSelectedMember(teamMembers[currentIndex]);
+              setActiveTab("bio");
+            }}
           >
             <img
               src={teamMembers[currentIndex].image}
@@ -121,23 +77,24 @@ const TeamSection = () => {
           </div>
         </div>
 
-        {/* --- Desktop View (4 cards + arrows) --- */}
+        {/* Desktop */}
         <div className="hidden md:flex items-center justify-center relative">
-          {/* Left Arrow */}
           <button
             onClick={prevSlide}
-            className="absolute -left-16 bg-transparent text-white p-2 hover:scale-110 transition"
+            className="absolute -left-16 text-white p-2 hover:scale-110"
           >
             <ChevronLeft size={40} />
           </button>
 
-          {/* 4 visible cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 w-full">
             {teamMembers.slice(currentIndex, currentIndex + 4).map((member) => (
               <div
                 key={member.id}
                 className="flex flex-col items-center text-center bg-gray-900 p-8 rounded-2xl shadow-xl hover:shadow-purple-500/40 transition cursor-pointer"
-                onClick={() => setSelectedMember(member)}
+                onClick={() => {
+                  setSelectedMember(member);
+                  setActiveTab("bio");
+                }}
               >
                 <img
                   src={member.image}
@@ -150,21 +107,19 @@ const TeamSection = () => {
             ))}
           </div>
 
-          {/* Right Arrow */}
           <button
             onClick={nextSlide}
-            className="absolute -right-16 bg-transparent text-white p-2 hover:scale-110 transition"
+            className="absolute -right-16 text-white p-2 hover:scale-110"
           >
             <ChevronRight size={40} />
           </button>
         </div>
       </div>
 
-      {/* --- Modal (Alert Style) --- */}
+      {/* Modal */}
       {selectedMember && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50 px-4">
-          <div className="bg-white text-black max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6 rounded-2xl relative shadow-lg">
-            {/* Close Button */}
+          <div className="bg-white text-black max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 rounded-2xl relative shadow-2xl">
             <button
               onClick={() => setSelectedMember(null)}
               className="absolute top-3 right-3 text-gray-600 hover:text-black"
@@ -172,8 +127,7 @@ const TeamSection = () => {
               <X size={24} />
             </button>
 
-            {/* Profile */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center mb-6">
               <img
                 src={selectedMember.image}
                 alt={selectedMember.name}
@@ -184,23 +138,91 @@ const TeamSection = () => {
               <p className="text-gray-500 text-sm">{selectedMember.email}</p>
             </div>
 
-            {/* Skills */}
-            <div className="mt-6">
-              <h4 className="font-semibold text-lg mb-2">Skills</h4>
-              <ul className="list-disc list-inside text-gray-700">
-                {selectedMember.skills.map((skill, idx) => (
-                  <li key={idx}>{skill}</li>
-                ))}
-              </ul>
+            {/* Tabs */}
+            <div className="flex flex-wrap justify-center gap-2 border-b pb-2 mb-4">
+              {TABS.map((t) => (
+                <button
+                  key={t.key}
+                  onClick={() => setActiveTab(t.key)}
+                  className={`px-4 py-2 text-sm font-medium rounded-t-md ${
+                    activeTab === t.key
+                      ? "border-b-2 border-purple-500 text-purple-600"
+                      : "text-gray-600 hover:text-purple-500"
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
             </div>
 
-            {/* Experience / Journey */}
-            <div className="mt-4">
-              <h4 className="font-semibold text-lg mb-2">Experience</h4>
-              <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                {selectedMember.experience}
-              </p>
+            {/* Tab content */}
+            <div className="text-gray-700 leading-relaxed">
+              {Array.isArray(selectedMember[activeTab]) ? (
+                <ul className="list-disc pl-5">
+                  {selectedMember[activeTab].map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>{selectedMember[activeTab]}</p>
+              )}
             </div>
+
+            {/* Portfolio Buttons */}
+            {selectedMember.portfolio && (
+              <div className="flex justify-center gap-3 mt-6 flex-wrap">
+                {selectedMember.portfolio.website && (
+                  <a
+                    href={selectedMember.portfolio.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition"
+                  >
+                    <Globe size={18} /> Website
+                  </a>
+                )}
+                {selectedMember.portfolio.linkedin && (
+                  <a
+                    href={selectedMember.portfolio.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                  >
+                    <Linkedin size={18} /> LinkedIn
+                  </a>
+                )}
+                {selectedMember.portfolio.github && (
+                  <a
+                    href={selectedMember.portfolio.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition"
+                  >
+                    <Github size={18} /> GitHub
+                  </a>
+                )}
+                {selectedMember.portfolio.whatsapp && (
+                  <a
+                    href={selectedMember.portfolio.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+                  >
+                    <Phone size={18} /> WhatsApp
+                  </a>
+                )}
+                {selectedMember.portfolio.fiver && (
+                  <a
+                    href={selectedMember.portfolio.fiver}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
+                  >
+                    <Briefcase size={18} /> Fiverr
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

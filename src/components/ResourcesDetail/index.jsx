@@ -1,4 +1,4 @@
-import resourcesData from "../../Data";
+import resourcesData from "../../Data/ResourceData";
 import StarsBackground from "../Starsbg"; // stars wala component
 
 export default function ResourcesDetail() {

@@ -16,7 +16,7 @@ const FounderSection = () => {
           <p className="text-sm text-gray-700 mb-2">
             Designation: Founder & CEO
           </p>
-          <p className="text-sm text-gray-700 mb-2">Phone: 92-0325 0099 345</p>
+          <p className="text-sm text-gray-700 mb-2">Phone: +92-3135551318</p>
           <p className="text-sm text-gray-700">
             Email: kamilhussain340@gmail.com
           </p>

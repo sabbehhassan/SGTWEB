@@ -1,8 +1,8 @@
-import webpic from "../assets/services_pic/webpic.jpg";
-import aipic from "../assets/services_pic/aipic.jpg";
-import amazonpic from "../assets/services_pic/amazonpic.jpg";
-import uipic from "../assets/services_pic/uipic.jpg";
-import bookkeepingpic from "../assets/services_pic/bookkeepingpic.jpg";
+import webpic from "../../assets/services_pic/webpic.jpg";
+import aipic from "../../assets/services_pic/aipic.jpg";
+import amazonpic from "../../assets/services_pic/amazonpic.jpg";
+import uipic from "../../assets/services_pic/uipic.jpg";
+import bookkeepingpic from "../../assets/services_pic/bookkeepingpic.jpg";
 
 const resourcesData = [
   {
@@ -14,7 +14,7 @@ const resourcesData = [
     image: webpic,
     projects: ["Portfolio Website", "E-commerce Store", "Blog Platform"],
     buttonText: "Get Resources",
-    buttonLink: "https://github.com/your-github-username",
+    buttonLink: "https://github.com/sabbehhassan",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const resourcesData = [
     image: uipic,
     projects: ["Mobile App UI", "Website Redesign"],
     buttonText: "Designer Profile",
-    buttonLink: "https://www.linkedin.com/in/your-linkedin-profile",
+    buttonLink: "linkedin.com/in/uiux-4950611a1",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const resourcesData = [
     image: aipic,
     projects: ["Chatbot", "Image Classifier", "Recommendation System"],
     buttonText: "Get Resources",
-    buttonLink: "https://github.com/your-github-username",
+    buttonLink: "https://linkedin.com/in/hasnain-ullah-ab52a5282/",
   },
   {
     id: 4,
@@ -62,7 +62,7 @@ const resourcesData = [
       "Automated Invoice Management System",
     ],
     buttonText: "Project Portfolio",
-    buttonLink: "https://wa.me/923001234567",
+    buttonLink: "https://www.fiverr.com/s/yvRw4XZ",
   },
   {
     id: 5,
@@ -73,7 +73,7 @@ const resourcesData = [
     image: amazonpic,
     projects: ["Product Research", "Listing Optimization", "Ad Campaigns"],
     buttonText: "Contact Us",
-    buttonLink: "https://wa.me/923001234567", // WhatsApp direct link
+    buttonLink: "https://wa.me/923554835284", // WhatsApp direct link
   },
 ];
 

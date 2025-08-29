@@ -4,9 +4,10 @@ import Pic2 from "../../assets/SGTgallery/SGT2.jpg";
 import Pic3 from "../../assets/SGTgallery/SGT3.jpg";
 import Pic4 from "../../assets/SGTgallery/SGT4.jpg";
 import Pic5 from "../../assets/SGTgallery/SGT5.jpg";
+import Pic6 from "../../assets/SGTgallery/SGT6.jpg";
 
 const SGTGallery = () => {
-  const images = [Pic1, Pic2, Pic3, Pic4, Pic5];
+  const images = [Pic1, Pic2, Pic3, Pic4, Pic5, Pic6];
 
   return (
     <section className="bg-gray-100 py-12 px-6 md:px-16">
