@@ -12,7 +12,7 @@ const TeamSection = () => {
       id: 1,
       name: "Sabbeh Hassan",
       role: "Developer",
-      email: "sabbeh@example.com",
+      email: "hassansubbeh2446@gmail.com",
       image: Sabbeh,
       skills: ["React", "Node.js", "MongoDB"],
       experience:

@@ -8,7 +8,7 @@ import TeamSection from "../../components/TeamSection";
 const AboutPage = () => {
   return (
     <div className="min-h-screen">
-      <AboutUs />
+      <AboutUs showButton={false} />
       <FounderSection />
       <TeamSection />
       <Certificates />

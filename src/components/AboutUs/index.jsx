@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AboutUs = () => {
+const AboutUs = ({ showButton = true }) => {
   return (
     <section className="bg-black text-white py-16 px-6 md:px-16">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-16">
@@ -34,12 +34,14 @@ const AboutUs = () => {
             </p>
           </div>
 
-          {/* More Details Button with Redirect */}
-          <Link to="/about">
-            <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full shadow-lg transition self-start mt-auto">
-              More Details
-            </button>
-          </Link>
+          {/* Conditionally show "More Details" button */}
+          {showButton && (
+            <Link to="/about">
+              <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full shadow-lg transition self-start mt-auto">
+                More Details
+              </button>
+            </Link>
+          )}
         </div>
 
         {/* Right Side - Embedded Google Map */}
