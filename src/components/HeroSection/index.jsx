@@ -45,15 +45,17 @@ const HeroSection = () => {
       </svg>
 
       {/* Heading */}
-      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-snug">
-        Building <span className="text-purple-500">Innovative</span> <br />
-        Software Solutions
+      <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold leading-snug">
+        <span className="text-purple-500"> Silicon </span>Global Tech
+        <br />
+        Inspiring the Next Wave of{" "}
+        <span className="text-purple-500">Innovation</span>
       </h1>
 
       {/* Subheading */}
       <p className="mt-4 max-w-lg sm:max-w-xl md:max-w-2xl text-gray-300 text-sm sm:text-base md:text-lg">
-        We empower businesses with cutting-edge web, mobile, and AI-driven
-        applications that accelerate growth and efficiency.
+        We combine creativity, intelligence, and innovation to deliver
+        transformative solutions that accelerate growth.
       </p>
 
       {/* Button */}
@@ -66,7 +68,7 @@ const HeroSection = () => {
   before:bg-gradient-to-r before:from-blue-600 before:to-purple-600 
   before:-z-10 inline-block text-center"
       >
-        <span className="relative z-10">Get Started</span>
+        <span className="relative z-10">See How We Work</span>
       </Link>
 
       {/* Yellow Arc with Shadow Glow */}

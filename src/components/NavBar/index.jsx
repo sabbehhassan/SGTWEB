@@ -1,56 +1,89 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import logo from "../../assets/logo/LOGO1.png";
+import logo from "../../assets/logo/LOGO2.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // WhatsApp Redirect Function
   const handleWhatsApp = () => {
-    const phoneNumber = "923270099635"; // ✅ apna WhatsApp number full with country code (without +)
+    const phoneNumber = "923270099635";
     window.open(`https://wa.me/${phoneNumber}`, "_blank");
   };
 
   return (
     <nav className="w-screen flex justify-between items-center px-6 md:px-16 py-5 bg-black/80 backdrop-blur-md text-white fixed top-0 left-0 z-50 shadow-md">
-      {/* Logo with Glass Effect */}
-      <Link to="/">
-        {" "}
-        {/* Home page ka link */}
+      {/* Logo */}
+      <NavLink to="/">
         <img
           src={logo}
           alt="Logo"
           className="h-16 md:h-20 object-contain cursor-pointer"
         />
-      </Link>
+      </NavLink>
 
       {/* Desktop Links */}
       <ul className="hidden md:flex gap-12 text-lg font-semibold">
         <li>
-          <Link to="/" className="hover:text-purple-400 transition">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "text-purple-400 border-b-2 border-purple-400 pb-1"
+                : "hover:text-purple-400 transition"
+            }
+          >
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/courses" className="hover:text-purple-400 transition">
+          <NavLink
+            to="/courses"
+            className={({ isActive }) =>
+              isActive
+                ? "text-purple-400 border-b-2 border-purple-400 pb-1"
+                : "hover:text-purple-400 transition"
+            }
+          >
             Courses
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/resources" className="hover:text-purple-400 transition">
+          <NavLink
+            to="/resources"
+            className={({ isActive }) =>
+              isActive
+                ? "text-purple-400 border-b-2 border-purple-400 pb-1"
+                : "hover:text-purple-400 transition"
+            }
+          >
             Services
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/about" className="hover:text-purple-400 transition">
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive
+                ? "text-purple-400 border-b-2 border-purple-400 pb-1"
+                : "hover:text-purple-400 transition"
+            }
+          >
             About Us
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/contact" className="hover:text-purple-400 transition">
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive
+                ? "text-purple-400 border-b-2 border-purple-400 pb-1"
+                : "hover:text-purple-400 transition"
+            }
+          >
             Contact Us
-          </Link>
+          </NavLink>
         </li>
       </ul>
 
@@ -73,41 +106,51 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-black text-white flex flex-col items-center gap-6 py-6 md:hidden shadow-lg">
-          <Link
+          <NavLink
             to="/"
             onClick={() => setIsOpen(false)}
-            className="text-lg hover:text-purple-400 transition"
+            className={({ isActive }) =>
+              isActive ? "text-purple-400 font-bold" : "hover:text-purple-400"
+            }
           >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/courses"
             onClick={() => setIsOpen(false)}
-            className="text-lg hover:text-purple-400 transition"
+            className={({ isActive }) =>
+              isActive ? "text-purple-400 font-bold" : "hover:text-purple-400"
+            }
           >
             Courses
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/resources"
             onClick={() => setIsOpen(false)}
-            className="text-lg hover:text-purple-400 transition"
+            className={({ isActive }) =>
+              isActive ? "text-purple-400 font-bold" : "hover:text-purple-400"
+            }
           >
             Resources
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/about"
             onClick={() => setIsOpen(false)}
-            className="text-lg hover:text-purple-400 transition"
+            className={({ isActive }) =>
+              isActive ? "text-purple-400 font-bold" : "hover:text-purple-400"
+            }
           >
             About Us
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/contact"
             onClick={() => setIsOpen(false)}
-            className="text-lg hover:text-purple-400 transition"
+            className={({ isActive }) =>
+              isActive ? "text-purple-400 font-bold" : "hover:text-purple-400"
+            }
           >
             Contact Us
-          </Link>
+          </NavLink>
           <button
             onClick={handleWhatsApp}
             className="hidden md:block relative px-6 py-2 text-base font-semibold rounded-full 
